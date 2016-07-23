@@ -30,17 +30,6 @@ $ sudo apt-get install vsftpd
 $ sudo pip install -r requirements.txt
 ```
 
-### Let us build the workspace
-``` bash
-$ cd /home/<username>
-$ mkdir workspace
-$ cd workspace
-$ mkdir python
-$ cd ../
-$ sudo chown root:root <username>
-$ cd workspace/python
-```
-
 ### Configure the FTP configuration file
 ``` bash
 $ sudo nano /etc/vsftpd.conf
@@ -54,6 +43,19 @@ Locate the following lines in the file and uncomment and edit to match this exac
 
 ``` bash
 $ sudo service vsftpd restart
+```
+
+### Let us build the workspace
+``` bash
+# because of a recent upgrade in vsftpd for chroot you need root to own the user main folder in /home
+# don't complain just do this
+$ cd /home/<username>
+$ mkdir workspace
+$ cd workspace
+$ mkdir python
+$ cd ../
+$ sudo chown root:root <username>
+$ cd workspace/python
 ```
 
 you can now copy files using FTP

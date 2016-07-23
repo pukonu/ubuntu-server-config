@@ -95,17 +95,20 @@ postgres$ exit
 
 ``` bash
 $ sudo nano /etc/postgresql/9.3/main/pg_hba.conf
-  # create a new line after "host     all     all     127.0.0.1/32     md5"
-  # enter
-  host     all     all     0.0.0.0/0     trust
-  # save the file
 ```
+create a new line after "host     all     all     127.0.0.1/32     md5" and insert
+```
+host     all     all     0.0.0.0/0     trust
+```
+save the file
 
 ``` bash
 $ sudo nano /etc/postgresql/9.3/main/postgresql.conf
-  # uncomment the line listen_addresses = 'localhost'
-  # change to
-  listen_addresses = '*'
+```
+uncomment the line listen_addresses = 'localhost'
+change to
+```
+listen_addresses = "*"
 ```
 
 ### database configuration is good to go for remote access and login
@@ -128,7 +131,7 @@ $ cd /etc/nginx/sites-available/
 # on the application root directory
 $ sudo ln -s /home/<username>/workspace/python/principal/server/principal.conf principal
 
-# cd /etc/nginx/sites-available/
+$ cd /etc/nginx/sites-enabled/
 $ sudo ln -s /home/<username>/workspace/python/principal/server/principal.conf principal
 
 # let us run uwsgi manually and test
@@ -142,8 +145,13 @@ Check if server works properly
 
 ``` bash
 $ sudo nano /etc/rc.local
-# just before "exit 0" enter the following
+```
+just before "exit 0" enter the following
+```
 $ /usr/local/bin/uwsgi --ini=/home/<username>/workspace/python/principal/server/uwsgi.ini --enable-threads &
+```
+
+``` bash
 $ sudo reboot
 ```
 

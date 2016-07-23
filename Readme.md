@@ -56,10 +56,7 @@ Locate the following lines in the file and uncomment and edit to match this exac
 $ sudo service vsftpd restart
 ```
 
-### You can now copy files using FTP
-
-# Install all pip requirements
-sudo pip install -r requirements.txt
+you can now copy files using FTP
 
 # Configure the Postgres database
 ``` bash
